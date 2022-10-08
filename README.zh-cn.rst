@@ -31,7 +31,7 @@ SDK可以帮助Python开发者快速完成由KMS密钥向专属KMS密钥迁移�
 软件要求
 --------
 
--  Python 2.7.15 or later
+-  Python 3 or later
 
 安装
 ----

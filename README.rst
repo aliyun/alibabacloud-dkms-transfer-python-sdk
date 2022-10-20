@@ -24,22 +24,11 @@ License
 Features
 --------
 
--  Dedicated KMS provides a tenant-specific instance that is deployed in
-   the VPC of a tenant to allow access over an internal network.
--  Dedicated KMS uses a tenant-specific cryptographic resource pool to
-   implement resource isolation and cryptographic isolation. This
-   improves security.
--  Dedicated KMS simplifies the management of HSMs. You can use the
-   stable, easy-to-use upper-layer key management features and
-   cryptographic operations provided by Dedicated KMS to manage your
-   HSMs.
--  Dedicated KMS allows you to integrate your HSMs with Alibaba Cloud
-   services in a seamless manner. This delivers secure and controllable
-   encryption capabilities for Alibaba Cloud services. For more
-   information, see `Alibaba Cloud services that can be integrated with
-   KMS <https://www.alibabacloud.com/help/en/key-management-service/latest/alibaba-cloud-services-that-can-be-integrated-with-kms#concept-2318937>`__.
--  Reduce the cost of migrating the Shared KMS keys to Dedicated KMS
-   keys.
+-  Dedicated KMS provides a tenant-specific instance that is deployed in the VPC of a tenant to allow access over an internal network.
+-  Dedicated KMS uses a tenant-specific cryptographic resource pool to implement resource isolation and cryptographic isolation. This improves security.
+-  Dedicated KMS simplifies the management of HSMs. You can use the stable, easy-to-use upper-layer key management features and cryptographic operations provided by Dedicated KMS to manage your HSMs.
+-  Dedicated KMS allows you to integrate your HSMs with Alibaba Cloud services in a seamless manner. This delivers secure and controllable encryption capabilities for Alibaba Cloud services. For more information, see `Alibaba Cloud services that can be integrated with KMS <https://www.alibabacloud.com/help/en/key-management-service/latest/alibaba-cloud-services-that-can-be-integrated-with-kms#concept-2318937>`__.
+-  Reduce the cost of migrating the Shared KMS keys to Dedicated KMS keys.
 
 Requirements
 ------------

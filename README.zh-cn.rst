@@ -6,7 +6,7 @@
 阿里云专属KMS适配Python
 SDK可以帮助Python开发者快速完成由KMS密钥向专属KMS密钥迁移适配工作。
 
-*其他语言版本:*\ `English <README.rst>`__\ *,*\ `简体中文 <README.zh-cn.rst>`__
+*其他语言版本:*\ `English <README.md>`__\ *,*\ `简体中文 <README.zh-cn.md>`__
 
 -  `阿里云专属KMS主页 <https://help.aliyun.com/document_detail/311016.html>`__
 -  `代码示例 </examples>`__
@@ -31,7 +31,7 @@ SDK可以帮助Python开发者快速完成由KMS密钥向专属KMS密钥迁移�
 软件要求
 --------
 
--  Python 2.7.15 or later
+-  Python 3 or later
 
 安装
 ----

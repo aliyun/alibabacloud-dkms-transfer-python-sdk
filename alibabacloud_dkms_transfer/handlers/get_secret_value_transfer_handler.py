@@ -9,6 +9,8 @@ class GetSecretValueTransferHandler(KmsTransferHandler):
     def __init__(self, client, action):
         self.client = client
         self.action = action
+        self.accept_format = "JSON"
+        self.xml_root = "KMS"
 
     def get_client(self):
         return self.client
@@ -17,6 +19,7 @@ class GetSecretValueTransferHandler(KmsTransferHandler):
         return self.action
 
     def build_dkms_request(self, request, runtime_options):
+        self.accept_format = request.get_accept_format()
         get_secret_value_request = GetSecretValueRequest()
         get_secret_value_request.secret_name = request.get_SecretName()
         get_secret_value_request.version_id = request.get_VersionId()
@@ -30,7 +33,7 @@ class GetSecretValueTransferHandler(KmsTransferHandler):
             'SecretType': response.secret_type,
             'SecretData': response.secret_data,
             'SecretDataType': response.secret_data_type,
-            'VersionStages': response.version_stages,
+            'VersionStages': {'VersionStage': response.version_stages},
             'VersionId': response.version_id,
             'CreateTime': response.create_time,
             'RequestId': response.request_id,
@@ -40,7 +43,7 @@ class GetSecretValueTransferHandler(KmsTransferHandler):
             'AutomaticRotation': response.automatic_rotation,
             'RotationInterval': response.rotation_interval,
         }
-        return codes.OK, None, dict_to_body(body), None
+        return codes.OK, None, dict_to_body(body, self.accept_format, self.xml_root), None
 
     def call_dkms(self, dkms_request, runtime_options):
         return self.client.get_secret_value_with_options(dkms_request, runtime_options)

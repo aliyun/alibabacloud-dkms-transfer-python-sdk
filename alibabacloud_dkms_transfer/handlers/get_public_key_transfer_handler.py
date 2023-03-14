@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from aliyunsdkcore.vendored.requests import codes
 from sdk.models import GetPublicKeyRequest
+
 from alibabacloud_dkms_transfer.handlers.kms_transfer_handler import dict_to_body, \
     KmsTransferHandler
 from alibabacloud_dkms_transfer.utils import consts
@@ -25,6 +26,9 @@ class GetPublicKeyTransferHandler(KmsTransferHandler):
         self.accept_format = request.get_accept_format()
         get_public_key_dkms_request = GetPublicKeyRequest()
         get_public_key_dkms_request.key_id = request.get_KeyId()
+        if request.get_KeyVersionId() is not None:
+            get_public_key_dkms_request.request_headers = {
+                consts.MIGRATION_KEY_VERSION_ID_KEY: request.get_KeyVersionId()}
         return get_public_key_dkms_request
 
     def call_dkms(self, dkms_request, runtime_options):

@@ -36,7 +36,7 @@ class KmsTransferAcsClient(AcsClient):
                  debug=False,
                  verify=None,
                  pool_size=10,
-                 proxy=None):
+                 proxy=None, is_use_kms_share_gateway=False):
         super(KmsTransferAcsClient, self).__init__(ak=ak,
                                                    secret=secret,
                                                    region_id=region_id,
@@ -54,6 +54,7 @@ class KmsTransferAcsClient(AcsClient):
                                                    verify=verify,
                                                    pool_size=pool_size,
                                                    proxy=proxy)
+        self.is_use_kms_share_gateway = is_use_kms_share_gateway
         self.handlers = dict()
         self.client = Client(config)
         self.init_kms_transfer_handlers()
@@ -78,7 +79,7 @@ class KmsTransferAcsClient(AcsClient):
         self.handlers[GET_SECRET_VALUE_API_NAME] = GetSecretValueTransferHandler(self.client, GET_SECRET_VALUE_API_NAME)
 
     def _implementation_of_do_action(self, request, signer=None):
-        if self.handlers.__contains__(request.get_action_name()):
+        if self.handlers.__contains__(request.get_action_name()) and not self.is_use_kms_share_gateway:
             return self.dispatch_dkms_action(request)
         return super(KmsTransferAcsClient, self)._implementation_of_do_action(request, signer)
 
